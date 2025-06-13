@@ -1,11 +1,11 @@
 #!/bin/bash
 
 solutionname='adb360'
-location='westus2'
-subscriptionid='<subscriptionid>'
+location='northeurope'
+subscriptionid='cdc2b911-3053-4dc6-a4f1-e979614c7cfd'
 serviceprincipalname='devops-sc'
 adbinteractprincipalname='adb360-sp'
-locationshortname='wus2'
+locationshortname='northeurope'
 
 month=$(date -d "$D" '+%m')
 day=$(date -d "$D" '+%d')
