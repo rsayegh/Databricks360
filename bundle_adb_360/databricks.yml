@@ -7,25 +7,25 @@ include:
   - resources/*.yml
 
 run_as:
-  service_principal_name: <appid of adb360-sp>
+  service_principal_name: adb360-sp
 
 
 variables:
   emailrecipient: 
     description: email address of the recipient of failure notifications
-    default: <email address of recipient>
+    default: admin@MngEnvMCAP471958.onmicrosoft.com
   devworkspace:
     description: workspace url for dev
-    default: <dev workspace url>
+    default: https://adb-2882014827761272.12.azuredatabricks.net
   prdworkspace:
     description: workspace url for prod
-    default: <prd workspace url>
+    default: https://adb-406777880185287.7.azuredatabricks.net
   username:
     description: adb360-sp uid
-    default: <appid of adb360-sp>
+    default: 61dff72b-e741-4725-89a1-39ce3a2edb81
   bronzestorageaccountname:
     description: the storage account name for bronze
-    default: <dev bronze storage account name>
+    default: adb3600613bronzesa
   catalogname:
     description: the catalog to use
     default: catadb360dev
@@ -37,13 +37,13 @@ targets:
   # The 'dev' target, for development purposes. This target is the default.
   dev:
     variables:
-      bronzestorageaccountname: <dev bronze storage account name>
+      bronzestorageaccountname: adb3600613bronzesa
 
       
     mode: development
     default: true
     workspace:
-      host: <dev workspace url>
+      host: https://adb-2882014827761272.12.azuredatabricks.net
 
     run_as:
       service_principal_name: ${var.username}
@@ -65,7 +65,7 @@ targets:
       
     mode: production
     workspace:
-      host: <prd workspace url>
+      host: https://adb-406777880185287.7.azuredatabricks.net
       # We always use /Users/chris@mngenv289593.onmicrosoft.com for all resources to make sure we only have a single copy.
       # If this path results in an error, please make sure you have a recent version of the CLI installed.
       root_path: /Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
