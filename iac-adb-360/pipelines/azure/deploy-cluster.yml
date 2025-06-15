@@ -1,10 +1,15 @@
 trigger:
   branches:
     include:
-      - devy
+      - dev
   paths:
-    include:
+    exclude:
       - '*'
+
+pr:
+  branches:
+    include:
+      - dev
 
 
 
